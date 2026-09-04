@@ -1,0 +1,9 @@
+node_modules
+coverage
+lib
+dist
+.claude
+.deploy
+.DS_Store
+*.tgz
+*.tsbuildinfo

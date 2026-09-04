@@ -1,0 +1,33 @@
+{
+  "name": "expand-chemical-groups-dev",
+  "private": true,
+  "version": "0.0.0",
+  "description": "Local playground to expand a notation and inspect the molecule it builds",
+  "type": "module",
+  "scripts": {
+    "build": "vite build",
+    "check-types": "tsc --noEmit",
+    "dev": "vite",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@blueprintjs/core": "^6.18.0",
+    "@blueprintjs/icons": "^6.13.0",
+    "expand-chemical-groups": "file:..",
+    "openchemlib": "^9.25.0",
+    "openchemlib-utils": "^8.18.0",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "react-mf": "^3.1.1",
+    "react-ocl": "^8.7.2"
+  },
+  "devDependencies": {
+    "@types/node": "^26.4.1",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.7",
+    "@vitejs/plugin-react": "^6.1.1",
+    "@zakodium/tsconfig": "^1.0.5",
+    "vite": "^8.2.2",
+    "vitest": "^5.0.0"
+  }
+}

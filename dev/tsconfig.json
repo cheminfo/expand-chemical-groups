@@ -1,0 +1,15 @@
+{
+  "extends": "@zakodium/tsconfig/jsx",
+  "compilerOptions": {
+    "noEmit": true,
+    "rootDir": "..",
+    "noUncheckedIndexedAccess": true,
+    "types": ["node", "vite/client"],
+    // Resolve the package to its sources, like the vite alias does, so that
+    // type-checking the playground never needs `npm run tsc` first.
+    "paths": {
+      "expand-chemical-groups": ["../src/index.ts"]
+    }
+  },
+  "include": ["src", "vite.config.ts"]
+}
