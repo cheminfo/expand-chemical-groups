@@ -44,11 +44,10 @@ export function expandChemicalGroups(ocl: OCL, notation: string): Molecule {
     molecule.addMolecule(buildStrand(ocl, parseGroupNotation(ocl, part)));
   }
 
-  molecule.ensureHelperArrays(Molecule.cHelperParities);
   // Every group brings the coordinates of its own idcode, they would overlap.
+  // Inventing new ones redraws the stereo bonds from the parities the group
+  // idcodes carry, so the stereocentres survive the new geometry.
   molecule.inventCoordinates();
-  molecule.setStereoBondsFromParity();
-  molecule.ensureHelperArrays(Molecule.cHelperNeighbours);
 
   return molecule;
 }

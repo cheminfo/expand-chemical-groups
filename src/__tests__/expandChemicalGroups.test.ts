@@ -39,6 +39,18 @@ test('the molecule is exportable to the usual formats', () => {
   expect(molecule.toMolfileV3()).toContain('V3000');
 });
 
+test('the stereocentres survive a molfile round trip', () => {
+  // The invented coordinates carry no stereo on their own: a molfile keeps the
+  // configuration only through the wedge bonds drawn from the parities.
+  const molecule = expandChemicalGroups(OCL, 'HAlaValLeuOH');
+  const roundTrip = OCL.Molecule.fromMolfile(molecule.toMolfile());
+
+  expect(roundTrip.toIsomericSmiles()).toBe(
+    'CC(C)C[C@@H](C(O)=O)NC([C@H](C(C)C)NC([C@H](C)N)=O)=O',
+  );
+  expect(roundTrip.getIDCode()).toBe(molecule.getIDCode());
+});
+
 test('an empty notation is rejected', () => {
   expect(() => expandChemicalGroups(OCL, '  ')).toThrow(
     'the notation is empty',
