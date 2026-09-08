@@ -16,12 +16,7 @@ import { getFragment } from '../utils/getFragment.ts';
  */
 
 /** The groups that cannot be built today, with the reason each one gives. */
-const REJECTED = [
-  'Pqb: the group Pqb has no attachment point in chemical-groups',
-  'Pqg: the group Pqg has no attachment point in chemical-groups',
-  'Qba: the group Qba has no attachment point in chemical-groups',
-  'Xle: unknown group in sequence: Xle',
-];
+const REJECTED = ['Xle: unknown group in sequence: Xle'];
 
 test('every group either builds one whole molecule or is rejected by name', () => {
   const rejected: string[] = [];
@@ -49,8 +44,8 @@ test('every group either builds one whole molecule or is rejected by name', () =
   expect(leftover).toStrictEqual([]);
   expect(split).toStrictEqual([]);
   expect(rejected.toSorted()).toStrictEqual(REJECTED);
-  expect(groups).toHaveLength(304);
-  expect(built).toBe(300);
+  expect(groups).toHaveLength(299);
+  expect(built).toBe(298);
 });
 
 /**
