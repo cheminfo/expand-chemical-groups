@@ -1,0 +1,137 @@
+<!DOCTYPE html><html class="default" lang="en" data-base="./"><head><meta charset="utf-8"/><meta http-equiv="x-ua-compatible" content="IE=edge"/><title>expand-chemical-groups</title><meta name="description" content="Documentation for expand-chemical-groups"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="assets/style.css"/><link rel="stylesheet" href="assets/highlight.css"/><script defer src="assets/main.js"></script><script async src="assets/icons.js" id="tsd-icons-script"></script><script async src="assets/search.js" id="tsd-search-script"></script><script async src="assets/navigation.js" id="tsd-nav-script"></script></head><body><script>document.documentElement.dataset.theme = localStorage.getItem("tsd-theme") || "os";document.body.style.display="none";setTimeout(() => window.app?app.showPage():document.body.style.removeProperty("display"),500)</script><header class="tsd-page-toolbar"><div class="tsd-toolbar-contents container"><a href="index.html" class="title">expand-chemical-groups</a><div id="tsd-toolbar-links"></div><button id="tsd-search-trigger" class="tsd-widget" aria-label="Search"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><use href="assets/icons.svg#icon-search"></use></svg></button><dialog id="tsd-search" aria-label="Search"><input role="combobox" id="tsd-search-input" aria-controls="tsd-search-results" aria-autocomplete="list" aria-expanded="true" autocapitalize="off" autocomplete="off" placeholder="Search the docs" maxLength="100"/><ul role="listbox" id="tsd-search-results"></ul><div id="tsd-search-status" aria-live="polite" aria-atomic="true"><div>Preparing search index...</div></div></dialog><a href="#" class="tsd-widget menu" id="tsd-toolbar-menu-trigger" data-toggle="menu" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><use href="assets/icons.svg#icon-menu"></use></svg></a></div></header><div class="container container-main"><div class="col-content"><div class="tsd-page-title"><h1>expand-chemical-groups</h1></div><div class="tsd-panel tsd-typography"><h1 id="expand-chemical-groups" class="tsd-anchor-link">expand-chemical-groups<a href="#expand-chemical-groups" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h1>
+<p><a href="https://www.npmjs.com/package/expand-chemical-groups"><img src="https://img.shields.io/npm/v/expand-chemical-groups.svg" alt="NPM version"></a>
+<a href="https://github.com/cheminfo/expand-chemical-groups/actions?query=workflow%3A%22Node.js+CI%22"><img src="https://github.com/cheminfo/expand-chemical-groups/workflows/Node.js%20CI/badge.svg?branch=main" alt="build status"></a>
+<a href="https://codecov.io/gh/cheminfo/expand-chemical-groups"><img src="https://img.shields.io/codecov/c/github/cheminfo/expand-chemical-groups.svg" alt="Test coverage"></a>
+<a href="https://www.npmjs.com/package/expand-chemical-groups"><img src="https://img.shields.io/npm/dm/expand-chemical-groups.svg" alt="npm download"></a></p>
+<p>Expand a <a href="https://github.com/cheminfo/chemical-groups"><code>chemical-groups</code></a> abbreviation such as <code>HAlaGlyOH</code>
+to an openchemlib molecule, and to the molfile it writes.</p>
+<h2 id="installation" class="tsd-anchor-link">Installation<a href="#installation" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<pre><code class="console"><span class="hl-0">npm i expand-chemical-groups</span>
+</code><button type="button">Copy</button></pre>
+
+<h2 id="usage" class="tsd-anchor-link">Usage<a href="#usage" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<pre><code class="js"><span class="hl-1">import</span><span class="hl-0"> { </span><span class="hl-2">expandChemicalGroups</span><span class="hl-0"> } </span><span class="hl-1">from</span><span class="hl-0"> </span><span class="hl-3">&#39;expand-chemical-groups&#39;</span><span class="hl-0">;</span><br/><br/><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">molecule</span><span class="hl-0"> = </span><span class="hl-6">expandChemicalGroups</span><span class="hl-0">(</span><span class="hl-3">&#39;HAlaGlyOH&#39;</span><span class="hl-0">);</span><br/><br/><span class="hl-2">molecule</span><span class="hl-0">.</span><span class="hl-6">toMolfile</span><span class="hl-0">(); </span><span class="hl-7">// V2000</span><br/><span class="hl-2">molecule</span><span class="hl-0">.</span><span class="hl-6">toMolfileV3</span><span class="hl-0">(); </span><span class="hl-7">// V3000</span>
+</code><button type="button">Copy</button></pre>
+
+<p>The molecule is a plain openchemlib <code>Molecule</code>, so every format openchemlib
+writes is available on it:</p>
+<pre><code class="js"><span class="hl-2">molecule</span><span class="hl-0">.</span><span class="hl-6">toIsomericSmiles</span><span class="hl-0">(); </span><span class="hl-7">// &#39;C[C@@H](C(NCC(O)=O)=O)N&#39;</span><br/><span class="hl-2">molecule</span><span class="hl-0">.</span><span class="hl-6">getIDCode</span><span class="hl-0">(); </span><span class="hl-7">// &#39;deeL@DhAgHheDXuUMFP@&#39;</span><br/><span class="hl-2">molecule</span><span class="hl-0">.</span><span class="hl-6">getAllAtoms</span><span class="hl-0">(); </span><span class="hl-7">// 10</span><br/><span class="hl-2">molecule</span><span class="hl-0">.</span><span class="hl-6">getMolecularFormula</span><span class="hl-0">().</span><span class="hl-2">formula</span><span class="hl-0">; </span><span class="hl-7">// &#39;C5H10N2O3&#39;</span><br/><span class="hl-2">molecule</span><span class="hl-0">.</span><span class="hl-6">getMolecularFormula</span><span class="hl-0">().</span><span class="hl-2">relativeWeight</span><span class="hl-0">; </span><span class="hl-7">// 146.1454</span>
+</code><button type="button">Copy</button></pre>
+
+<h2 id="in-a-page-that-already-has-openchemlib" class="tsd-anchor-link">In a page that already has openchemlib<a href="#in-a-page-that-already-has-openchemlib" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<p>The npm entry point above brings its own openchemlib. A browser bundle built
+from <code>expandChemicalGroups</code> leaves the library out and takes it as the first
+argument, so a page that already loaded openchemlib does not download a second
+copy of it — 274 kB instead of 1.3 MB.</p>
+<pre><code class="html"><span class="hl-8">&lt;</span><span class="hl-9">script</span><span class="hl-10"> </span><span class="hl-11">src</span><span class="hl-10">=</span><span class="hl-12">&quot;openchemlib-full.js&quot;</span><span class="hl-8">&gt;&lt;/</span><span class="hl-9">script</span><span class="hl-8">&gt;</span><br/><span class="hl-8">&lt;</span><span class="hl-9">script</span><span class="hl-10"> </span><span class="hl-11">src</span><span class="hl-10">=</span><span class="hl-12">&quot;expand-chemical-groups.umd.min.js&quot;</span><span class="hl-8">&gt;&lt;/</span><span class="hl-9">script</span><span class="hl-8">&gt;</span><br/><span class="hl-8">&lt;</span><span class="hl-9">script</span><span class="hl-8">&gt;</span><br/><span class="hl-10">  </span><span class="hl-4">const</span><span class="hl-10"> </span><span class="hl-5">molecule</span><span class="hl-10"> </span><span class="hl-0">=</span><span class="hl-10"> </span><span class="hl-2">ExpandChemicalGroups</span><span class="hl-10">.</span><span class="hl-6">expandChemicalGroups</span><span class="hl-10">(</span><span class="hl-5">OCL</span><span class="hl-10">, </span><span class="hl-3">&#39;HAlaGlyOH&#39;</span><span class="hl-10">);</span><br/><span class="hl-10">  </span><span class="hl-2">molecule</span><span class="hl-10">.</span><span class="hl-6">getMolecularFormula</span><span class="hl-10">().</span><span class="hl-2">formula</span><span class="hl-10">; </span><span class="hl-7">// &#39;C5H10N2O3&#39;</span><br/><span class="hl-8">&lt;/</span><span class="hl-9">script</span><span class="hl-8">&gt;</span>
+</code><button type="button">Copy</button></pre>
+
+<h2 id="any-chain" class="tsd-anchor-link">Any chain<a href="#any-chain" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<p>The same call accepts every kind of chain: peptides, nucleic acids, and
+anything <code>chemical-groups</code> describes.</p>
+<pre><code class="js"><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">molecule</span><span class="hl-0"> = </span><span class="hl-6">expandChemicalGroups</span><span class="hl-0">(</span><span class="hl-3">&#39;HODampDcmpH&#39;</span><span class="hl-0">);</span><br/><br/><span class="hl-2">molecule</span><span class="hl-0">.</span><span class="hl-6">getMolecularFormula</span><span class="hl-0">().</span><span class="hl-2">formula</span><span class="hl-0">; </span><span class="hl-7">// &#39;C19H26N8O12P2&#39;</span><br/><span class="hl-2">molecule</span><span class="hl-0">.</span><span class="hl-6">toMolfile</span><span class="hl-0">(); </span><span class="hl-7">// V2000</span>
+</code><button type="button">Copy</button></pre>
+
+<p>A notation holding several strands separated by a dot gives one molecule with
+one fragment per strand: <code>HODampH.HODcmpH</code> builds two.</p>
+<p>It throws <code>the notation is empty</code> on an empty or blank notation, and
+<code>unknown group in sequence: Xyz</code> on a group <code>chemical-groups</code> does not know.</p>
+<h2 id="the-notation" class="tsd-anchor-link">The notation<a href="#the-notation" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<p>The notation is the one the <a href="https://github.com/cheminfo/mass-tools"><code>mass-tools</code></a> packages speak.</p>
+<table>
+<thead>
+<tr>
+<th>Notation</th>
+<th>What it builds</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>HAlaGlyOH</code></td>
+<td>the free Ala-Gly dipeptide</td>
+</tr>
+<tr>
+<td><code>HAlaGlyNH2</code></td>
+<td>the same, as a C-terminal amide</td>
+</tr>
+<tr>
+<td><code>MeAlaGlyProPh</code></td>
+<td>N-methyl, then Ala-Gly-Pro, then a phenyl ketone</td>
+</tr>
+<tr>
+<td><code>H(Ala)3GlyOH</code></td>
+<td>parentheses and multipliers are expanded</td>
+</tr>
+<tr>
+<td><code>HCysp(Ph)OH</code></td>
+<td>S-phenylcysteine — <code>Ph</code> fills the <code>R3</code> of <code>Cysp</code></td>
+</tr>
+<tr>
+<td><code>HODampDcmpH</code></td>
+<td>a DNA dinucleotide, 5′-phosphate and 3′-hydroxyl</td>
+</tr>
+<tr>
+<td><code>HOAmpCmpH</code></td>
+<td>the RNA equivalent</td>
+</tr>
+<tr>
+<td><code>HODampH.HODcmpH</code></td>
+<td>two strands, as two fragments of one molecule</td>
+</tr>
+<tr>
+<td><code>HAlaGlyOAlaOH</code></td>
+<td>a depsipeptide — the <code>O</code> links the two residues</td>
+</tr>
+</tbody>
+</table>
+<p>Every chain unit of <code>chemical-groups</code> carries an <code>R1</code> on the side facing the
+previous unit and an <code>R2</code> on the side facing the next one, whatever the
+chemistry. Two consecutive units are therefore condensed the same way — drop the
+two attachment points that face each other, bond the atoms they sat on — and
+what differs between an amide and a phosphodiester is only which atoms those
+are.</p>
+<p>An element symbol is answered with a structure of the same kind, carrying one
+attachment point per bond it can make: <code>H</code> is <code>H-R</code>, <code>O</code> is <code>R1-O-R2</code>, <code>N</code> is
+<code>R1-N(-R2)-R3</code>. Nothing in the notation tells an element from a group — every
+symbol is looked up and comes back as a structure — so an element condenses
+exactly as a residue does, and a
+terminal is not a special case — <code>…OH</code> is a carboxylic acid and <code>…NH2</code> an amide
+for the same reason <code>…OMe</code> is an ester. An attachment point nothing is
+condensed onto is removed, leaving its atom the hydrogen it was drawn without,
+so <code>HAlaGlyOH</code> and <code>AlaGlyO</code> build the same dipeptide. That also means an
+element is not confined to an end: <code>HAlaGlyOAlaOH</code> is a depsipeptide, and
+<code>HAlaGlyOOH</code> a peroxide.</p>
+<h3 id="side-chains" class="tsd-anchor-link">Side chains<a href="#side-chains" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<p>A triradical residue — <code>Cysp</code>, <code>Serp</code>, <code>Tyrp</code>, and the ten others <code>chemical-groups</code>
+draws that way — carries a third attachment point, <code>R3</code>, on its side chain. Write
+what hangs there in parentheses right after the residue:</p>
+<pre><code class="js"><span class="hl-6">expandChemicalGroups</span><span class="hl-0">(</span><span class="hl-3">&#39;HCysp(Ph)OH&#39;</span><span class="hl-0">).</span><span class="hl-6">toIsomericSmiles</span><span class="hl-0">();</span><br/><span class="hl-7">// &#39;N[C@@H](CSc1ccccc1)C(O)=O&#39;  — S-phenylcysteine</span>
+</code><button type="button">Copy</button></pre>
+
+<p>Parentheses name a side chain only after a residue that has an <code>R3</code> to fill;
+after anything else they simply group a block of the chain, so <code>H(Ala)3GlyOH</code>
+repeats an alanine and <code>HAla(Gly)OH</code> is <code>HAlaGlyOH</code>. A residue written without
+them keeps the hydrogen it was drawn without, which makes <code>HCyspOH</code> the free
+cysteine.</p>
+<h2 id="one-letter-and-database-sequences" class="tsd-anchor-link">One-letter and database sequences<a href="#one-letter-and-database-sequences" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<p>They are not understood here. Convert them first, with the package that owns
+that vocabulary, and pass the result:</p>
+<pre><code class="js"><span class="hl-1">import</span><span class="hl-0"> { </span><span class="hl-2">sequenceToMF</span><span class="hl-0"> } </span><span class="hl-1">from</span><span class="hl-0"> </span><span class="hl-3">&#39;peptide&#39;</span><span class="hl-0">;</span><br/><span class="hl-1">import</span><span class="hl-0"> { </span><span class="hl-2">sequenceToMF</span><span class="hl-0"> </span><span class="hl-1">as</span><span class="hl-0"> </span><span class="hl-2">nucleicToMF</span><span class="hl-0"> } </span><span class="hl-1">from</span><span class="hl-0"> </span><span class="hl-3">&#39;nucleotide&#39;</span><span class="hl-0">;</span><br/><span class="hl-1">import</span><span class="hl-0"> { </span><span class="hl-2">expandChemicalGroups</span><span class="hl-0"> } </span><span class="hl-1">from</span><span class="hl-0"> </span><span class="hl-3">&#39;expand-chemical-groups&#39;</span><span class="hl-0">;</span><br/><br/><span class="hl-6">sequenceToMF</span><span class="hl-0">(</span><span class="hl-3">&#39;AGP&#39;</span><span class="hl-0">); </span><span class="hl-7">// &#39;HAlaGlyProOH&#39;</span><br/><span class="hl-6">expandChemicalGroups</span><span class="hl-0">(</span><span class="hl-6">sequenceToMF</span><span class="hl-0">(</span><span class="hl-3">&#39;AGP&#39;</span><span class="hl-0">)).</span><span class="hl-6">getMolecularFormula</span><span class="hl-0">().</span><span class="hl-2">formula</span><span class="hl-0">;</span><br/><span class="hl-7">// &#39;C10H17N3O4&#39;</span><br/><br/><span class="hl-6">nucleicToMF</span><span class="hl-0">(</span><span class="hl-3">&#39;ACGT&#39;</span><span class="hl-0">, { </span><span class="hl-2">kind:</span><span class="hl-0"> </span><span class="hl-3">&#39;dna&#39;</span><span class="hl-0"> }); </span><span class="hl-7">// &#39;HODampDcmpDgmpDtmpH&#39;</span><br/><span class="hl-6">expandChemicalGroups</span><span class="hl-0">(</span><span class="hl-6">nucleicToMF</span><span class="hl-0">(</span><span class="hl-3">&#39;ACGT&#39;</span><span class="hl-0">, { </span><span class="hl-2">kind:</span><span class="hl-0"> </span><span class="hl-3">&#39;dna&#39;</span><span class="hl-0"> })).</span><span class="hl-6">getFragments</span><span class="hl-0">()</span><br/><span class="hl-0">  .</span><span class="hl-2">length</span><span class="hl-0">;</span><br/><span class="hl-7">// 1</span>
+</code><button type="button">Copy</button></pre>
+
+<p>Keeping the expanders out means this package depends only on <code>chemical-groups</code>
+and <code>mf-parser</code>, and gains nothing it would have to keep in step with every
+sequence format.</p>
+<h2 id="debugging-a-notation" class="tsd-anchor-link">Debugging a notation<a href="#debugging-a-notation" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<p>Clone the repository and run the playground:</p>
+<pre><code class="console"><span class="hl-0">npm install</span><br/><span class="hl-0">npm run dev</span>
+</code><button type="button">Copy</button></pre>
+
+<p>It opens on <a href="http://localhost:10828">http://localhost:10828</a>. Type a notation and it draws the molecule
+and reports the formula — which is the fastest way to see where a notation went
+wrong. It runs the sources in <code>src</code>, so nothing has to be built first. See
+<a href="media/README.md"><code>dev/README.md</code></a>.</p>
+<h2 id="api-documentation" class="tsd-anchor-link"><a href="https://cheminfo.github.io/expand-chemical-groups/">API Documentation</a><a href="#api-documentation" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<h2 id="license" class="tsd-anchor-link">License<a href="#license" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<p><a href="media/LICENSE">MIT</a></p>
+</div></div><div class="col-sidebar"><div class="page-menu"><div class="tsd-navigation settings"><details class="tsd-accordion"><summary class="tsd-accordion-summary"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><use href="assets/icons.svg#icon-chevronDown"></use></svg><h3>Settings</h3></summary><div class="tsd-accordion-details"><div class="tsd-filter-visibility"><span class="settings-label">Member Visibility</span><ul id="tsd-filter-options"><li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-protected" name="protected"/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Protected</span></label></li><li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-inherited" name="inherited" checked/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Inherited</span></label></li><li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-external" name="external"/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>External</span></label></li></ul></div><div class="tsd-theme-toggle"><label class="settings-label" for="tsd-theme">Theme</label><select id="tsd-theme"><option value="os">OS</option><option value="light">Light</option><option value="dark">Dark</option></select></div></div></details></div><details open class="tsd-accordion tsd-page-navigation"><summary class="tsd-accordion-summary"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><use href="assets/icons.svg#icon-chevronDown"></use></svg><h3>On This Page</h3></summary><div class="tsd-accordion-details"><a href="#expand-chemical-groups"><span>expand-<wbr/>chemical-<wbr/>groups</span></a><ul><li><a href="#installation"><span>Installation</span></a></li><li><a href="#usage"><span>Usage</span></a></li><li><a href="#in-a-page-that-already-has-openchemlib"><span>In a page that already has openchemlib</span></a></li><li><a href="#any-chain"><span>Any chain</span></a></li><li><a href="#the-notation"><span>The notation</span></a></li><li><ul><li><a href="#side-chains"><span>Side chains</span></a></li></ul></li><li><a href="#one-letter-and-database-sequences"><span>One-<wbr/>letter and database sequences</span></a></li><li><a href="#debugging-a-notation"><span>Debugging a notation</span></a></li><li><a href="#api-documentation"><span>API <wbr/>Documentation</span></a></li><li><a href="#license"><span>License</span></a></li></ul></div></details></div><div class="site-menu"><nav class="tsd-navigation"><a href="modules.html">expand-chemical-groups</a><ul class="tsd-small-nested-navigation" id="tsd-nav-container"><li>Loading...</li></ul></nav></div></div></div><footer></footer><div class="overlay"></div></body></html>
