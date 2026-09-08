@@ -1,6 +1,6 @@
 {
   "name": "expand-chemical-groups",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Expand a chemical-groups abbreviation such as HAlaGlyOH to an OCL molecule",
   "type": "module",
   "exports": {
